@@ -5,14 +5,21 @@ block content
   p Welcome, #{name}!
   
   .main.container
-    button(onclick="login()") Login
-    button(onclick="register()") Register
+    .row
+      .col-md-6.col-md-offset-3
+
+        // register form
+        form(method='POST' action='/users/register')
+          div.form-group
+            label(for='name') Name:
+            input#name.form-control(type='text', placeholder='New name' name='name')
+          br
+          button.btn.btn-primary(type='submit') Change name
+
+    //- button(onclick="register()") Register
 
     script.
-      function login() {
-        window.location.href = '/users/login'
-      }
-
+      
       function register() {
         window.location.href = '/users/register'
       }
